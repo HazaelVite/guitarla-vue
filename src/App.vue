@@ -1,14 +1,17 @@
 <script setup>
-import { onMounted, ref } from 'vue';
-import { db } from './data/guitarras';
-import Guitarra from './components/Guitarra.vue';
+import { onMounted, ref } from "vue";
+import { db } from "./data/guitarras";
+import Guitarra from "./components/Guitarra.vue";
 
 const guitarras = ref([]);
 
 onMounted(() => {
   guitarras.value = db;
-})
+});
 
+const agregarCarrito = () => {
+  alert("Diste click");
+};
 </script>
 
 <template>
@@ -17,11 +20,7 @@ onMounted(() => {
       <div class="row justify-content-center justify-content-md-between">
         <div class="col-8 col-md-3">
           <a href="index.html">
-            <img
-              class="img-fluid"
-              src="/img/logo.svg"
-              alt="imagen logo"
-            />
+            <img class="img-fluid" src="/img/logo.svg" alt="imagen logo" />
           </a>
         </div>
         <nav
@@ -112,8 +111,13 @@ onMounted(() => {
     <h2 class="text-center">Nuestra Colección</h2>
 
     <div class="row mt-5">
-      <Guitarra v-for="guitarra in guitarras" :key="index" :guitarra="guitarra" />
-      <!-- FIN GUITARRA -->      
+      <Guitarra
+        v-for="guitarra in guitarras"
+        :key="index"
+        :guitarra="guitarra"
+        @agregar-carrito="agregarCarrito"
+      />
+      <!-- FIN GUITARRA -->
     </div>
   </main>
 
