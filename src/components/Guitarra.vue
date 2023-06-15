@@ -29,7 +29,7 @@ defineEmits(["agregar-carrito"]);
       <button
         type="button"
         class="btn btn-dark w-100"
-        @click="$emit('agregar-carrito', guitarra.id)"
+        @click="$emit('agregar-carrito', guitarra)"
       >
         Agregar al Carrito
       </button>
